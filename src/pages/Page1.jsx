@@ -1,8 +1,14 @@
 import React from "react";
 import { useSmoothScroll } from "../hooks/useSmoothScroll";
+import { useNavigate } from "react-router-dom";
 
 const Page1 = () => {
   const scrollContainerRef = useSmoothScroll(1000); // 1000ms = 1 giây
+  const navigate = useNavigate();
+
+  const handleCharacterClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <div ref={scrollContainerRef} className="h-screen overflow-y-scroll">
@@ -30,29 +36,23 @@ const Page1 = () => {
 
         <img src="/page1/arrow-down.svg" alt="arrow" className="w-16 mb-16 animate-bounce" />
 
-        <div className="flex gap-12 items-end">
+        <div className="flex gap-12 items-end mt-8">
           <div className="flex flex-col items-center">
-            <div className="bg-neutral-300 w-64 h-96 rounded-3xl flex items-center justify-center mb-6">
-              <p className="text-green-500 text-xl font-bold">ẢNH MINH HỌA</p>
-            </div>
+            <img src="/page1/MA.png" alt="Minh Anh" className="w-150 rounded-3xl mb-6 -rotate-90 mb-12 transition-transform duration-300 hover:scale-110 cursor-pointer" onClick={() => handleCharacterClick("/ma")} />
             <h3 className="text-white text-3xl font-['Itim'] font-bold">
               MINH ANH
             </h3>
           </div>
 
           <div className="flex flex-col items-center">
-            <div className="bg-neutral-300 w-64 h-96 rounded-3xl flex items-center justify-center mb-6">
-              <p className="text-green-500 text-xl font-bold">ẢNH MINH HỌA</p>
-            </div>
+            <img src="/page1/TH.png" alt="Thu Hằng" className="w-155 rounded-3xl mb-6 -rotate-90 mb-12 transition-transform duration-300 hover:scale-110 cursor-pointer" onClick={() => handleCharacterClick("/th")} />
             <h3 className="text-white text-3xl font-['Itim'] font-bold">
               THU HẰNG
             </h3>
           </div>
 
           <div className="flex flex-col items-center">
-            <div className="bg-neutral-300 w-64 h-96 rounded-3xl flex items-center justify-center mb-6">
-              <p className="text-green-500 text-xl font-bold">ẢNH MINH HỌA</p>
-            </div>
+            <img src="/page1/AT.png" alt="Anh Thư" className="w-150 rounded-3xl mb-6 -rotate-90 mb-12 transition-transform duration-300 hover:scale-110 cursor-pointer" onClick={() => handleCharacterClick("/at")} />
             <h3 className="text-white text-3xl font-['Itim'] font-bold">
               ANH THƯ
             </h3>

@@ -1,10 +1,21 @@
 import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 
+// Preload tất cả ảnh
+const imageUrls = [1, 2, 3, 4].map((num) => `/MApage/${num}.png`);
+
 const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
   const [currentImage, setCurrentImage] = useState(1);
   const sectionRef = useRef(null);
   const isScrollingRef = useRef(false);
   const currentImageRef = useRef(currentImage);
+
+  // Preload ảnh khi component mount
+  useEffect(() => {
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   // Sync ref với state
   useEffect(() => {
@@ -17,6 +28,7 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
   // Xử lý scroll để chuyển ảnh
   useEffect(() => {
     const setScrollLock = scrollContainerRef?.setScrollLock;
+    let unlockTimeoutId = null;
 
     const handleWheel = (e) => {
       const section = sectionRef.current;
@@ -36,6 +48,11 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
 
       // Đang trong view và chưa ở ảnh biên -> lock scroll
       if ((e.deltaY > 0 && current < 4) || (e.deltaY < 0 && current > 1)) {
+        // Clear any pending unlock
+        if (unlockTimeoutId) {
+          clearTimeout(unlockTimeoutId);
+          unlockTimeoutId = null;
+        }
         if (setScrollLock) setScrollLock(true);
 
         if (!isScrollingRef.current) {
@@ -56,8 +73,13 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
           }, 600);
         }
       } else {
-        // Đang ở ảnh biên và scroll ra ngoài -> unlock scroll
-        if (setScrollLock) setScrollLock(false);
+        // Đang ở ảnh biên và scroll ra ngoài -> delay unlock để transition hoàn tất
+        if (!unlockTimeoutId) {
+          unlockTimeoutId = setTimeout(() => {
+            if (setScrollLock) setScrollLock(false);
+            unlockTimeoutId = null;
+          }, 300);
+        }
       }
     };
 
@@ -69,6 +91,10 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
     return () => {
       if (container) {
         container.removeEventListener("wheel", handleWheel);
+      }
+      // Clear pending timeout
+      if (unlockTimeoutId) {
+        clearTimeout(unlockTimeoutId);
       }
       // Reset scroll lock khi unmount
       if (setScrollLock) setScrollLock(false);

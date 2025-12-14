@@ -31,13 +31,19 @@ const VideoSection = ({ scrollContainerRef }) => {
       } else {
         // Scroll vào section -> play video
         video.muted = false;
-        video.play();
+        video.play().catch(() => {
+          // Autoplay bị chặn, giữ muted và thử lại
+          video.muted = true;
+          video.play();
+        });
       }
     };
 
     const container = scrollContainerRef?.current;
     if (container) {
       container.addEventListener("scroll", handleScroll);
+      // Kiểm tra ngay khi mount
+      handleScroll();
     }
 
     return () => {

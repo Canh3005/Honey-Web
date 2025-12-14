@@ -5,7 +5,7 @@ import LocationPinWithBubble from "./LocationPinWithBubble";
 const RoadWithPins = ({
   className = "",
   pins = [],
-  characterSrc = "/MApage/bot.svg",
+  characterSrc = "/MApage/bot.png",
   onComplete = () => {},
 }) => {
   const [currentStopIndex, setCurrentStopIndex] = useState(-1);
@@ -50,48 +50,29 @@ const RoadWithPins = ({
   // Pin đang active
   const activePinIndex = !isMoving && currentStopIndex >= 0 ? currentStopIndex : null;
 
-  // Xử lý click trái để di chuyển tiến
-  const handleClick = () => {
+  // Xử lý click vào pin để di chuyển đến đó
+  const handlePinClick = (pinIndex) => {
     if (isMoving) return;
-    if (currentStopIndex >= pins.length - 1) return;
+    if (pinIndex === currentStopIndex) return; // Đã ở vị trí này rồi
 
     setIsMoving(true);
     setTimeout(() => {
-      const newIndex = currentStopIndex + 1;
-      setCurrentStopIndex(newIndex);
+      setCurrentStopIndex(pinIndex);
       setIsMoving(false);
-      if (newIndex >= pins.length - 1) {
+      if (pinIndex >= pins.length - 1) {
         onComplete();
       }
-    }, 1000);
-  };
-
-  // Xử lý click phải để quay lại
-  const handleContextMenu = (e) => {
-    e.preventDefault(); // Ngăn menu chuột phải mặc định
-    if (isMoving) return;
-    if (currentStopIndex <= -1) return; // Đã ở vị trí đầu
-
-    setIsMoving(true);
-    setTimeout(() => {
-      const newIndex = currentStopIndex - 1;
-      setCurrentStopIndex(newIndex);
-      setIsMoving(false);
     }, 1000);
   };
 
   const isComplete = currentStopIndex >= pins.length - 1;
 
   return (
-    <div
-      className={`relative ${className} h-[100vh] cursor-pointer`}
-      onClick={handleClick}
-      onContextMenu={handleContextMenu}
-    >
+    <div className={`relative ${className} h-[100vh]`}>
       {/* Hướng dẫn */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white/80 px-4 py-2 rounded-lg z-20">
-        <p className="font-['Itim'] text-gray-800 text-sm">
-          {isComplete ? "Đã hoàn thành hành trình!" : "Click để di chuyển đến điểm tiếp theo"}
+        <p className="font-['Itim'] text-gray-800 text-2xl text-red-600 font-bold">
+          {isComplete ? "ĐÃ HOÀN THÀNH HÀNH TRÌNH!" : "CLICK VÀO PIN ĐỂ DI CHUYỂN"}
         </p>
       </div>
 
@@ -115,7 +96,7 @@ const RoadWithPins = ({
         return (
           <LocationPinWithBubble
             key={index}
-            className="absolute"
+            className="absolute cursor-pointer"
             style={{
               left: `${position.left}%`,
               top: `${position.top}%`,
@@ -126,6 +107,7 @@ const RoadWithPins = ({
             bubbleContent={pin.bubbleContent}
             title={pin.title}
             titlePosition={position.titlePosition}
+            onClick={() => handlePinClick(index)}
           />
         );
       })}

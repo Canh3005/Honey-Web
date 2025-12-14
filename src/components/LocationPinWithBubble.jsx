@@ -11,6 +11,7 @@ const LocationPinWithBubble = ({
   titlePosition = "bottom", // "top" hoặc "bottom"
   className = "",
   style = {},
+  onClick = () => {},
 }) => {
   return (
     <div
@@ -20,6 +21,7 @@ const LocationPinWithBubble = ({
         width: size,
         height: size * 1.33,
       }}
+      onClick={onClick}
     >
       {/* Title phía trên */}
       {titlePosition === "top" && (

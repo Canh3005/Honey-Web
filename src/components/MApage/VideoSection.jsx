@@ -8,6 +8,8 @@ const VideoSection = ({ scrollContainerRef }) => {
     const video = videoRef.current;
     if (video) {
       video.volume = 0.3; // 30% volume
+      video.muted = true; // Mặc định tắt tiếng
+      video.pause(); // Mặc định pause
     }
   }, []);
 
@@ -50,9 +52,9 @@ const VideoSection = ({ scrollContainerRef }) => {
       <video
         ref={videoRef}
         src="/MApage/vidMA.mp4"
-        autoPlay
         loop
         playsInline
+        muted
         className="absolute inset-0 w-full h-full object-cover"
       />
     </div>

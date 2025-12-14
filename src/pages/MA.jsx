@@ -5,7 +5,8 @@ import {
   RoadMapSection,
   FacebookGroupSection,
   WarningSection,
-  ChallengesSection
+  ChallengesSection,
+  VideoSection
 } from "../components/MApage";
 
 const MA = () => {
@@ -55,6 +56,7 @@ const MA = () => {
       <RoadMapSection />
       <FacebookGroupSection scrollContainerRef={scrollContainerRef} />
       <WarningSection />
+      <VideoSection scrollContainerRef={scrollContainerRef} />
       <ChallengesSection />
     </div>  
   );

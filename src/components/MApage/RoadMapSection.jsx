@@ -41,7 +41,7 @@ const pinsData = [
 
 const RoadMapSection = () => {
   return (
-    <div className="bg-[url(/MApage/bgMap.png)] h-[100vh] bg-cover bg-center bg-no-repeat relative overflow-hidden flex items-center justify-center">
+    <div className="bg-[url(/MApage/bgMap.png)] h-[100vh] bg-cover bg-center bg-no-repeat relative overflow-hidden flex items-center justify-center -ml-10">
       <RoadWithPins
         className="w-[1700px] h-full"
         pins={pinsData}

@@ -26,7 +26,7 @@ const LocationPinWithBubble = ({
       {/* Title phía trên */}
       {titlePosition === "top" && (
         <p
-          className={`absolute text-center font-['Itim'] font-bold text-gray-800 text-lg whitespace-nowrap left-1/2 -translate-x-1/2 bottom-3`}
+          className={`absolute text-center font-['Itim'] font-bold text-gray-800 text-2xl whitespace-nowrap left-1/2 -translate-x-1/2 bottom-3`}
         >
           {title || <span>&nbsp;</span>}
         </p>
@@ -38,7 +38,7 @@ const LocationPinWithBubble = ({
           tailPosition="bottom-left"
           className={`absolute z-30 whitespace-nowrap pointer-events-none bottom-7 left-1/2 -translate-x-6 ${isActive ? 'visible' : 'invisible'}`}
         >
-          <ul className="font-['Itim'] text-gray-800 text-sm list-disc pl-4 space-y-1">
+          <ul className="font-['Itim'] text-gray-800 text-xl list-disc pl-4 space-y-1">
             {bubbleContent.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -55,7 +55,7 @@ const LocationPinWithBubble = ({
       {/* Title phía dưới */}
       {titlePosition === "bottom" && (
         <p
-          className={`absolute text-center font-['Itim'] font-bold text-gray-800 text-lg whitespace-nowrap left-1/2 -translate-x-1/2 top-60`}
+          className={`absolute text-center font-['Itim'] font-bold text-gray-800 text-2xl whitespace-nowrap left-1/2 -translate-x-1/2 top-60`}
         >
           {title || <span>&nbsp;</span>}
         </p>

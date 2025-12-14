@@ -27,7 +27,7 @@ const ChallengesSection = () => {
         {challengesData.map((item, index) => (
           <div key={index} className="flex flex-col items-center max-w-[350px]">
             {/* Image container */}
-            <div className="w-[300px] h-[300px] overflow-hidden">
+            <div className="w-[300px] h-[300px] cursor-pointer hover:scale-110 transition-transform duration-500">
               <img
                 src={item.image}
                 alt={`Challenge ${index + 1}`}

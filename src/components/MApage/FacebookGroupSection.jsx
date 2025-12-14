@@ -1,4 +1,11 @@
-import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
+import FacebookImageSlide from "./FacebookImageSlide";
 
 // Preload tất cả ảnh
 const imageUrls = [1, 2, 3, 4].map((num) => `/MApage/${num}.png`);
@@ -36,7 +43,8 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
 
       const rect = section.getBoundingClientRect();
       // Section đang trong view (chiếm phần lớn màn hình)
-      const isInView = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
+      const isInView =
+        rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
 
       if (!isInView) {
         // Không trong view, unlock scroll
@@ -101,22 +109,17 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
     };
   }, [scrollContainerRef]);
 
-  return (
-    <div
-      ref={sectionRef}
-      className="h-[100vh] w-full relative overflow-hidden"
-    >
-      {[1, 2, 3, 4].map((num) => (
-        <img
-          key={num}
-          src={`/MApage/${num}.png`}
-          alt={`Facebook Group - ${num}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-            currentImage === num ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+  const textContent = ["Niềm đam mê viết lách đến với Minh Anh một cách rất tự nhiên, từ những ngày còn rất sớm, khi con chữ không chỉ là công cụ diễn đạt, mà là nơi cô gửi gắm cảm xúc, suy nghĩ và cả những điều khó gọi tên trong cuộc sống.", "Xuất phát từ mong muốn có một không gian riêng để được viết, được chia sẻ mà không bị phán xét, Minh Anh đã lập nên một nhóm nhỏ trên Facebook và đặt tên là “Còn thở là còn viết”", "Một cái tên mộc mạc, giản dị, nhưng chứa đựng tinh thần bền bỉ của những người yêu chữ: chỉ cần còn sống, còn cảm xúc, thì vẫn còn điều để viết.", "Từ một góc nhỏ dành cho vài người bạn có chung niềm yêu thích, đến nay “Còn thở là còn viết” đã phát triển thành một cộng đồng hơn 77.000 thành viên. Nơi đây trở thành điểm hẹn của những người yêu con chữ, thích chia sẻ những mảnh ghép đời sống" ]
 
+  return (
+    <div ref={sectionRef} className="h-[100vh] w-full relative overflow-hidden">
+      <FacebookImageSlide num={1} isActive={currentImage === 1} textContent={textContent[0]} />
+
+      <FacebookImageSlide num={2} isActive={currentImage === 2} textContent={textContent[1]} />
+
+      <FacebookImageSlide num={3} isActive={currentImage === 3} textContent={textContent[2]} />
+
+      <FacebookImageSlide num={4} isActive={currentImage === 4} textContent={textContent[3]} />
     </div>
   );
 });

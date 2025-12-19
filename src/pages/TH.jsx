@@ -2,6 +2,13 @@ import { useSmoothScroll } from "../hooks/useSmoothScroll";
 import {
   HeroSection,
   IntroSection,
+  BookSection,
+  MVPSection,
+  OlympiaSection,
+  OlympiaSection1,
+  StudySection,
+  HorizontalSection,
+  FinalSection,
 } from "../components/THpage";
 
 const TH = () => {
@@ -48,6 +55,13 @@ const TH = () => {
 
       <HeroSection />
       <IntroSection />
+      <BookSection />
+      <MVPSection />
+      <OlympiaSection />
+      <OlympiaSection1 />
+      <StudySection />
+      <HorizontalSection />
+      <FinalSection />
     </div>  
   );
 };

@@ -1,2 +1,9 @@
 export { default as HeroSection } from "./HeroSection";
 export { default as IntroSection } from "./IntroSection";
+export { default as BookSection } from "./BookSection";
+export { default as MVPSection } from "./MVPSection";
+export { default as OlympiaSection } from "./OlympiaSection";
+export { default as OlympiaSection1 } from "./OlympiaSection1";
+export { default as StudySection } from "./StudySection";
+export { default as HorizontalSection } from "./HorizontalSection";
+export { default as FinalSection } from "./FinalSection";

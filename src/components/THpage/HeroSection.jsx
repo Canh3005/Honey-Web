@@ -13,7 +13,7 @@ const HeroSection = () => {
             NGUYỄN THỊ THU HẰNG
           </h2>
           <p className="text-3xl text-gray-700 font-['Itim'] opacity-0 animate-fade-up delay-600">
-            (21 TUỔI)
+            (23 TUỔI)
           </p>
         </div>
 

@@ -1,0 +1,5 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as IntroSection } from "./IntroSection";
+export { default as ComputerSection } from "./ComputerSection";
+export { default as RoleSection } from "./RoleSection";
+export { default as CrySection } from "./CrySection";

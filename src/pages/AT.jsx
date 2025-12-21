@@ -5,6 +5,7 @@ import {
   ComputerSection,
   RoleSection,
   CrySection,
+  MentalHealthChart,
 } from "../components/ATpage";
 
 const AT = () => {
@@ -56,6 +57,7 @@ const AT = () => {
       <ComputerSection scrollContainerRef={scrollContainerRef} />
       <RoleSection scrollContainerRef={scrollContainerRef} />
       <CrySection />
+      <MentalHealthChart className="h-screen" />
     </div>
   );
 };

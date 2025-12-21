@@ -13,7 +13,7 @@ const FacebookImageSlide = ({ num, isActive, textContent }) => {
       />
 
       {/* Text Overlay - sử dụng children để custom text cho từng slide */}
-        <div className="h-[20vh] w-full bg-black flex items-center justify-center p-8 text-white text-4xl font-['Itim'] font-bold drop-shadow-lg text-center">
+        <div className="h-[20vh] w-full bg-black flex items-center justify-center p-8 text-white lg:text-4xl md:text-3xl font-['Itim'] font-bold drop-shadow-lg text-center">
           {textContent}
         </div>
     </div>

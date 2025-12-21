@@ -24,7 +24,7 @@ const StudySection = () => {
           alt="Study"
           className="h-7/10 object-cover w-full"
         />
-        <p className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[38px] font-[Itim] max-w-[1600px] my-auto px-4 text-center">
+        <p className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[38px] font-[Itim] max-w-[1600px] my-auto px-3 text-center">
           Thế nhưng chính lúc đó, cô hiểu rằng chiến thắng thật sự không nằm ở
           sân khấu, mà nằm ở khả năng đứng vững giữa một thế giới hoàn toàn mới.
           Hằng học lại từ đầu: cách ghi chép, hỏi bài, giao tiếp, thích nghi.

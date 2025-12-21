@@ -2,7 +2,7 @@ import React from "react";
 
 const MVPSection = () => {
   return (
-    <section className="min-h-screen bg-[url('/THpage/NoiseBG.png')] bg-cover bg-center overflow-x-hidden">
+    <section className="h-screen bg-[url('/THpage/NoiseBG.png')] bg-cover bg-center overflow-x-hidden overflow-y-hidden">
       <div className="mx-auto flex min-h-screen max-w-8xl flex-col items-center justify-center px-4 sm:px-6 lg:px-10 py-10">
         {/* Images */}
         <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 md:gap-10 lg:gap-16 mb-10 md:mb-16">

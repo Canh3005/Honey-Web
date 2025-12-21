@@ -110,7 +110,7 @@ const HorizontalSection = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen flex items-center bg-white"
+      className="relative h-screen flex items-center justify-center bg-white overflow-x-hidden overflow-y-hidden"
     >
       {/* Audio element */}
       <audio ref={audioRef} src="/THpage/voiceHorizon.m4a" preload="auto" />

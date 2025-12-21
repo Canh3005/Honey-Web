@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <div className="bg-[url('/MApage/bgChar.png')] min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden">
+    <div className="bg-[url('/MApage/bgChar.png')] h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden">
       <div className="flex gap-12 items-center mt-15 w-full max-w-screen-xl px-5">
         {/* Left side - Avatar card */}
         <div className="flex flex-col items-center">

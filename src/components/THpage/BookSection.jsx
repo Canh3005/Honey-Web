@@ -2,7 +2,7 @@ import React from "react";
 
 const BookSection = () => {
   return (
-    <section className="relative min-h-screen bg-[url('/THpage/bgBook.png')] bg-cover bg-center">
+    <section className="relative h-screen bg-[url('/THpage/bgBook.png')] bg-cover bg-center">
       {/* overlay optional cho dễ đọc chữ (bỏ nếu không cần) */}
       <div className="absolute inset-0 bg-black/20" />
 

@@ -20,7 +20,7 @@ const challengesData = [
 const ChallengesSection = () => {
   return (
     <div
-      className="h-[100vh] w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden"
+      className="h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden overflow-y-hidden"
       style={{ backgroundImage: "url('/MApage/bgPic.png')" }}
     >
       <div className="flex gap-20 px-20 mt-20">
@@ -35,7 +35,7 @@ const ChallengesSection = () => {
               />
             </div>
             {/* Text */}
-            <p className="mt-10 text-center text-gray-800 font-['Itim'] text-3xl leading-relaxed">
+            <p className="mt-8 text-center text-gray-800 font-['Itim'] text-3xl leading-relaxed">
               {item.text}
             </p>
           </div>

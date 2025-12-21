@@ -1,7 +1,7 @@
 const HeroSection = () => {
   return (
-    <div className="bg-[url('/MApage/bgChar.png')] h-[100vh] bg-cover bg-center bg-no-repeat flex items-center justify-center">
-      <div className="flex gap-20 items-center mt-15">
+    <div className="bg-[url('/MApage/bgChar.png')] min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden">
+      <div className="flex gap-12 items-center mt-15 w-full max-w-screen-xl px-6">
         {/* Left side - Avatar card */}
         <div className="flex flex-col items-center">
           <img
@@ -24,7 +24,7 @@ const HeroSection = () => {
             <p className="text-3xl font-bold text-gray-800 font-['Itim'] mb-8">
               SÁT THƯƠNG:
             </p>
-            <div className="w-200 h-15 bg-white rounded-full overflow-hidden border-2 border-blue-300">
+            <div className="w-[min(800px,90vw)] h-15 bg-white rounded-full overflow-hidden border-2 border-blue-300">
               <div className="h-full bg-[#90b6ee] rounded-full animate-fill-70 delay-800"></div>
             </div>
           </div>
@@ -34,7 +34,7 @@ const HeroSection = () => {
             <p className="text-3xl font-bold text-gray-800 font-['Itim'] mb-8">
               HP:
             </p>
-            <div className="w-200 h-15 bg-white rounded-full overflow-hidden border-2 border-blue-300">
+            <div className="w-[min(800px,90vw)] h-15 bg-white rounded-full overflow-hidden border-2 border-blue-300">
               <div className="h-full bg-[#90b6ee] rounded-full animate-fill-90 delay-1000"></div>
             </div>
           </div>

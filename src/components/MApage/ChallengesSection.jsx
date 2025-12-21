@@ -20,7 +20,7 @@ const challengesData = [
 const ChallengesSection = () => {
   return (
     <div
-      className="h-[100vh] w-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
+      className="h-[100vh] w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden"
       style={{ backgroundImage: "url('/MApage/bgPic.png')" }}
     >
       <div className="flex gap-20 px-20 mt-20">

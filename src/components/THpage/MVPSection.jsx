@@ -2,7 +2,7 @@ import React from 'react'
 
 const MVPSection = () => {
   return (
-    <div className="h-screen bg-[url('/THpage/NoiseBG.png')] bg-cover bg-center flex flex-col items-center justify-center">
+    <div className="h-screen bg-[url('/THpage/NoiseBG.png')] bg-cover bg-center flex flex-col items-center justify-center overflow-x-hidden px-10">
       <div className="flex gap-20 mb-20">
         <img 
           src="/THpage/mvp1.jpg" 

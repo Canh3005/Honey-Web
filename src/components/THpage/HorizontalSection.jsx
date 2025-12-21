@@ -6,6 +6,47 @@ const HorizontalSection = () => {
 
   // Danh sách ảnh
   const images = Array.from({ length: 9 }, (_, i) => `/THpage/horizontal-scroll/h${i + 1}.jpg`);
+  const audioRef = useRef(null);
+
+  
+  // Xử lý phát/dừng audio khi scroll vào/ra section
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Scroll vào section -> phát audio từ đầu
+          audio.currentTime = 0;
+          audio.play().catch((err) => {
+            console.log("Audio play failed:", err);
+          });
+        } else {
+          // Scroll ra khỏi section -> dừng audio
+          audio.pause();
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.1, // Section chiếm ít nhất 10% viewport
+    });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+      // Dừng audio khi unmount
+      if (audio) {
+        audio.pause();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -71,6 +112,8 @@ const HorizontalSection = () => {
       ref={containerRef}
       className="relative min-h-screen flex items-center bg-white"
     >
+      {/* Audio element */}
+      <audio ref={audioRef} src="/THpage/voiceHorizon.m4a" preload="auto" />
       <div className="w-full h-full py-10">
         <div div className="px-8 w-full h-full">
           <div

@@ -15,6 +15,7 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
   const sectionRef = useRef(null);
   const isScrollingRef = useRef(false);
   const currentImageRef = useRef(currentImage);
+  const audioRef = useRef(null);
 
   // Preload ảnh khi component mount
   useEffect(() => {
@@ -31,6 +32,45 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
 
   // Expose sectionRef to parent
   useImperativeHandle(ref, () => sectionRef.current);
+
+  // Xử lý phát/dừng audio khi scroll vào/ra section
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Scroll vào section -> phát audio từ đầu
+          audio.currentTime = 0;
+          audio.play().catch((err) => {
+            console.log("Audio play failed:", err);
+          });
+        } else {
+          // Scroll ra khỏi section -> dừng audio
+          audio.pause();
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.1, // Section chiếm 10% viewport là phát
+    });
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      // Dừng audio khi unmount
+      if (audio) {
+        audio.pause();
+      }
+    };
+  }, []);
 
   // Xử lý scroll để chuyển ảnh
   useEffect(() => {
@@ -113,6 +153,9 @@ const FacebookGroupSection = forwardRef(({ scrollContainerRef }, ref) => {
 
   return (
     <div ref={sectionRef} className="h-[100vh] w-full relative overflow-hidden">
+      {/* Audio element */}
+      <audio ref={audioRef} src="/MApage/voice772.m4a" preload="auto" />
+      
       <FacebookImageSlide num={1} isActive={currentImage === 1} textContent={textContent[0]} />
 
       <FacebookImageSlide num={2} isActive={currentImage === 2} textContent={textContent[1]} />

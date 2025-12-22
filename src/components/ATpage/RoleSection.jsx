@@ -11,6 +11,8 @@ const RoleSection = forwardRef(({ scrollContainerRef }, ref) => {
   const sectionRef = useRef(null);
   const isScrollingRef = useRef(false);
   const currentImageRef = useRef(currentImage);
+  const text = ["", "Ở giảng đường, Anh Thư là một sinh viên lặng lẽ, tập trung vào học tập và kỷ luật bản thân, quen với áp lực và những đêm dài hoàn thành công việc. Cô ít nói về khó khăn, chọn cách tự chịu và tự vượt qua, coi nỗ lực là điều hiển nhiên của một người đi học.", "Còn khi chỉ có mình và màn hình sáng khuya, Anh Thư trở lại là một người trẻ bình thường: biết mệt, biết chậm lại, và biết thừa nhận giới hạn của bản thân. Chính những khoảnh khắc riêng tư ấy giúp cô giữ được sự cân bằng, để ngày mai lại tiếp tục đảm nhận tốt những vai trò của mình.", "Khi khoác màu áo Đoàn, Anh Thư trở thành người đứng ở tuyến đầu trách nhiệm, gánh vác việc chung, luôn cố gắng vững vàng để người khác yên tâm dựa vào. Trong vai trò ấy, Anh Thư học cách đặt tập thể lên trước cảm xúc cá nhân, dù đôi lúc chính mình cũng cần được lắng nghe."];
+  const position = ["top-10 left-10", "top-10 right-10", "top-5 left-130"];
 
   // Preload ảnh khi component mount
   useEffect(() => {
@@ -107,10 +109,10 @@ const RoleSection = forwardRef(({ scrollContainerRef }, ref) => {
 
   return (
     <div ref={sectionRef} className="h-[100vh] w-full relative overflow-hidden">
-      <RoleImageSlide imageName="role1.png" isActive={currentImage === 1} />
-      <RoleImageSlide imageName="role2.png" isActive={currentImage === 2} />
-      <RoleImageSlide imageName="role3.png" isActive={currentImage === 3} />
-      <RoleImageSlide imageName="role4.png" isActive={currentImage === 4} />
+      <RoleImageSlide imageName="role1.png" isActive={currentImage === 1} text={text[0]} />
+      <RoleImageSlide imageName="role2.png" isActive={currentImage === 2} text={text[1]} position={position[0]} />
+      <RoleImageSlide imageName="role3.png" isActive={currentImage === 3} text={text[2]} position={position[1]} />
+      <RoleImageSlide imageName="role4.png" isActive={currentImage === 4} text={text[3]} position={position[2]} />
     </div>
   );
 });

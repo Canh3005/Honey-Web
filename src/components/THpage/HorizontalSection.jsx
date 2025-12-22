@@ -3,25 +3,74 @@ import React, { useRef, useEffect, useState } from 'react';
 const HorizontalSection = () => {
   const containerRef = useRef(null);
   const [, setIsScrolling] = useState(false);
+  const [audioReady, setAudioReady] = useState(false);
 
   // Danh sách ảnh
   const images = Array.from({ length: 9 }, (_, i) => `/THpage/horizontal-scroll/h${i + 1}.jpg`);
   const audioRef = useRef(null);
 
-  
+  // Preload và track audio ready state
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleCanPlay = () => {
+      setAudioReady(true);
+    };
+
+    const handleError = (e) => {
+      console.error("Audio loading error:", e);
+    };
+
+    audio.addEventListener('canplaythrough', handleCanPlay);
+    audio.addEventListener('error', handleError);
+
+    // Force load audio
+    audio.load();
+
+    return () => {
+      audio.removeEventListener('canplaythrough', handleCanPlay);
+      audio.removeEventListener('error', handleError);
+    };
+  }, []);
+
   // Xử lý phát/dừng audio khi scroll vào/ra section
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    const playAudio = async () => {
+      try {
+        // Đợi audio ready nếu chưa sẵn sàng
+        if (!audioReady) {
+          await new Promise((resolve) => {
+            const checkReady = () => {
+              if (audio.readyState >= 3) { // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
+                resolve();
+              } else {
+                setTimeout(checkReady, 100);
+              }
+            };
+            checkReady();
+          });
+        }
+
+        audio.currentTime = 0;
+        await audio.play();
+      } catch (err) {
+        console.log("Audio play failed:", err);
+        // Retry sau 500ms nếu fail
+        setTimeout(() => {
+          audio.play().catch(e => console.log("Retry failed:", e));
+        }, 500);
+      }
+    };
+
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Scroll vào section -> phát audio từ đầu
-          audio.currentTime = 0;
-          audio.play().catch((err) => {
-            console.log("Audio play failed:", err);
-          });
+          playAudio();
         } else {
           // Scroll ra khỏi section -> dừng audio
           audio.pause();
@@ -46,7 +95,7 @@ const HorizontalSection = () => {
         audio.pause();
       }
     };
-  }, []);
+  }, [audioReady]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -54,7 +103,7 @@ const HorizontalSection = () => {
 
     const handleWheel = (e) => {
       const containerRect = container.getBoundingClientRect();
-      
+
       // Kiểm tra section có trong viewport không
       const isInView = containerRect.top <= 100 && containerRect.bottom >= 0;
 
@@ -110,7 +159,7 @@ const HorizontalSection = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-screen flex items-center justify-center bg-white overflow-x-hidden overflow-y-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-white overflow-x-hidden overflow-y-hidden"
     >
       {/* Audio element */}
       <audio ref={audioRef} src="/THpage/voiceHorizon.m4a" preload="auto" />

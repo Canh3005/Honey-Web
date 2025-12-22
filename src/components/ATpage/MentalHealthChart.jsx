@@ -105,6 +105,7 @@ const MentalHealthChart = ({ className = "" }) => {
           />
         </LineChart>
       </ResponsiveContainer>
+      <p className="absolute bottom-0 left-0 right-0 text-center font-['Itim'] text-black text-lg p-10 italic w-[60%] mx-auto">* Dữ liệu được sử dụng trong phân tích này trích từ nghiên cứu Mental Health in University Students in Vietnam: A Case Study Analysis, tiến hành trên mẫu 200 sinh viên đại học tại Việt Nam, với tỷ lệ lớn là sinh viên năm nhất và nữ giới.</p>
     </div>
   );
 };

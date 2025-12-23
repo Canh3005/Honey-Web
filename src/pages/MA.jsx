@@ -8,6 +8,7 @@ import {
   ChallengesSection,
   VideoSection
 } from "../components/MApage";
+import CharacterNavigator from "../components/CharacterNavigator";
 
 const MA = () => {
   const scrollContainerRef = useSmoothScroll(1000);
@@ -58,6 +59,8 @@ const MA = () => {
       <WarningSection />
       <VideoSection scrollContainerRef={scrollContainerRef} />
       <ChallengesSection />
+      
+      <CharacterNavigator />
     </div>  
   );
 };

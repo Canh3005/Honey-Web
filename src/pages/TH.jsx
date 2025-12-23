@@ -10,6 +10,7 @@ import {
   HorizontalSection,
   FinalSection,
 } from "../components/THpage";
+import CharacterNavigator from "../components/CharacterNavigator";
 
 const TH = () => {
   const scrollContainerRef = useSmoothScroll(1000);
@@ -62,6 +63,8 @@ const TH = () => {
       <StudySection />
       <HorizontalSection />
       <FinalSection />
+      
+      <CharacterNavigator />
     </div>  
   );
 };

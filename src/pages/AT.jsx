@@ -7,6 +7,7 @@ import {
   CrySection,
   MentalHealthChart,
 } from "../components/ATpage";
+import CharacterNavigator from "../components/CharacterNavigator";
 
 const AT = () => {
   const scrollContainerRef = useSmoothScroll(1000);
@@ -58,6 +59,7 @@ const AT = () => {
       <RoleSection scrollContainerRef={scrollContainerRef} />
       <CrySection />
       <MentalHealthChart className="h-screen" />
+      <CharacterNavigator />
     </div>
   );
 };

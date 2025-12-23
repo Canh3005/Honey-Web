@@ -84,7 +84,7 @@ const CharacterNavigator = () => {
                 <img
                   src={character.image}
                   alt={character.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 -rotate-90"
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 -rotate-90 opacity-70 group-hover:opacity-100"
                 />
               </div>
 

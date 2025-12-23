@@ -21,7 +21,7 @@ const CharacterNavigator = () => {
     },
     {
       id: 'TH',
-      name: 'Thu Hiền',
+      name: 'Thu Hằng',
       path: '/th',
       image: '/THpage/avtTH.png',
       color: 'from-green-500 to-emerald-500'
@@ -75,7 +75,7 @@ const CharacterNavigator = () => {
               {/* Gradient Border */}
               <div className={`
                 absolute inset-0 bg-gradient-to-br ${character.color}
-                ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
+                ${isActive ? 'opacity-60' : 'opacity-0 group-hover:opacity-100'}
                 transition-opacity duration-300
               `}></div>
               
@@ -84,7 +84,7 @@ const CharacterNavigator = () => {
                 <img
                   src={character.image}
                   alt={character.name}
-                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 -rotate-90 opacity-70 group-hover:opacity-100"
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 -rotate-90 opacity-60 group-hover:opacity-100"
                 />
               </div>
 

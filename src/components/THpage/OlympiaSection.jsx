@@ -8,7 +8,7 @@ const OlympiaSection1 = () => {
         alt="Olympia Background"
       />
       <p className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-[Itim] my-auto px-20 text-center">
-        Nhưng chiến thắng ấy cũng mang đến một điều khác: Danh tiếng và Áp lực
+        Nhưng chiến thắng ấy cũng mang đến một điều khác: Sự nổi tiếng và Áp lực
       </p>
     </div>
   );

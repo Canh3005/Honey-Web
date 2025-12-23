@@ -4,11 +4,13 @@ import {
   IntroSection,
   RoadMapSection,
   FacebookGroupSection,
-  WarningSection,
   ChallengesSection,
-  VideoSection
+  MapViewSection,
+  IndiaSection,
+  FinalSection
 } from "../components/MApage";
 import CharacterNavigator from "../components/CharacterNavigator";
+import TitleSection from "../components/TitleSection";
 
 const MA = () => {
   const scrollContainerRef = useSmoothScroll(1000);
@@ -55,11 +57,12 @@ const MA = () => {
       <HeroSection />
       <IntroSection />
       <RoadMapSection />
+      <MapViewSection />
+      <TitleSection text={["Group Facebook “Còn thở là còn viết”", "Dự án nơi những người yêu viết được thỏa mãn đam mê"]} />
       <FacebookGroupSection scrollContainerRef={scrollContainerRef} />
-      <WarningSection />
-      <VideoSection scrollContainerRef={scrollContainerRef} />
+      <IndiaSection />
       <ChallengesSection />
-      
+      <FinalSection />
       <CharacterNavigator />
     </div>  
   );

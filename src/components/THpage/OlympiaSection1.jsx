@@ -7,9 +7,9 @@ const OlympiaSection1 = () => {
         src="/THpage/bgOlympia1.png"
         alt="Olympia Background"
       />
-      <p className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-[Itim] my-auto px-10 text-center">
-        Mình chưa từng nghĩ rằng sẽ trở nên nổi tiếng. Mình chỉ cố gắng làm tốt
-        nhất có thể.”
+      <p className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-[Itim] my-auto px-8 text-center">
+        "Mình chưa từng nghĩ rằng sẽ trở nên nổi tiếng. Mình chỉ cố gắng làm tốt
+        nhất có thể."
       </p>
     </div>
   );

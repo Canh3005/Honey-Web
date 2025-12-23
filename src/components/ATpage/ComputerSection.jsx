@@ -110,7 +110,7 @@ const ComputerSection = forwardRef(({ scrollContainerRef }, ref) => {
 
   return (
     <div ref={sectionRef} className="h-[100vh] w-full relative overflow-hidden">
-      <ComputerImageSlide imageName="prize.png" isActive={currentImage === 1} text="Mọi người thấy Thư rạng rỡ khi nhận giấy khen, nhưng ít ai biết có những đêm cô mệt đến mức không muốn gõ thêm dòng nào." />
+      <ComputerImageSlide imageName="prize.png" isActive={currentImage === 1} text="Mọi người thấy Thư rạng rỡ khi luôn được nhận giấy khen nhưng sau tất cả, ít ai biết rằng, có những đêm cô gái bé nhỏ ấy chỉ nghĩ đến hai chữ “bỏ cuộc”." />
       <ComputerImageSlide imageName="computer.png" isActive={currentImage === 2} />
       <ComputerImageSlide imageName="computer.gif" isActive={currentImage === 3} />
     </div>

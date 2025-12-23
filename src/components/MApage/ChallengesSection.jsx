@@ -1,3 +1,5 @@
+import React, { useRef, useEffect, useState } from 'react';
+
 const challengesData = [
   {
     image: "/MApage/pic1.svg",
@@ -18,14 +20,49 @@ const challengesData = [
 ];
 
 const ChallengesSection = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
+      ref={sectionRef}
       className="h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden overflow-y-hidden"
       style={{ backgroundImage: "url('/MApage/bgPic.png')" }}
     >
       <div className="flex gap-20 px-20 mt-20">
         {challengesData.map((item, index) => (
-          <div key={index} className="flex flex-col items-center max-w-[350px]">
+          <div 
+            key={index} 
+            className={`flex flex-col items-center max-w-[350px] transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{
+              transitionDelay: `${index * 150}ms`
+            }}
+          >
             {/* Image container */}
             <div className="w-[300px] h-[300px] cursor-pointer hover:scale-110 transition-transform duration-500">
               <img

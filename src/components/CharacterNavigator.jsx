@@ -8,21 +8,21 @@ const CharacterNavigator = () => {
     {
       id: 'AT',
       name: 'Anh Thư',
-      path: '/AT',
+      path: '/at',
       image: '/ATpage/avtAT.png',
       color: 'from-purple-500 to-pink-500'
     },
     {
       id: 'MA',
       name: 'Minh Anh',
-      path: '/MA',
+      path: '/ma',
       image: '/MApage/avt.png',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       id: 'TH',
       name: 'Thu Hiền',
-      path: '/TH',
+      path: '/th',
       image: '/THpage/avtTH.png',
       color: 'from-green-500 to-emerald-500'
     }

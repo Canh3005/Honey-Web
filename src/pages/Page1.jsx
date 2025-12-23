@@ -18,14 +18,13 @@ const Page1 = () => {
       <div className="bg-gradient-to-b from-neutral-300 to-black h-[150vh] items-center justify-center flex">
         <div className="font-['Itim'] text-white pr-100 pl-100 text-5xl mt-80">
           <p>
-            Giữa những ngày trẻ đầy tiếng ồn, bon chen và deadline dí sát gáy,
+            Giữa những ngày trẻ đầy bận rộn, bon chen và deadline dí sát gáy,
             luôn có những người chọn đi chậm hơn một nhịp - không ồn ào, chỉ âm
             thầm bước tiếp dù có lúc mệt đến mức muốn dừng lại.
           </p>
           <br />
           <p>
-            Mạnh mẽ không phải là không ngã, mà là dám đứng lên sau mỗi lần muốn
-            bỏ cuộc.
+            Mạnh mẽ không có nghĩa là không gục ngã, mà là dám đứng dậy sau mỗi lần muốn bỏ cuộc.
           </p>
         </div>
       </div>

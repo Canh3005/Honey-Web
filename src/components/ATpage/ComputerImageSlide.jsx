@@ -9,7 +9,7 @@ const ComputerImageSlide = ({ imageName, isActive, text }) => {
         alt={imageName}
         className="w-full h-full object-cover"
       />
-      {text && <p className="absolute top-0 left-0 right-0 text-center text-black font-[Itim] text-5xl p-10">{text}</p>}
+      {text && <p className="absolute top-0 left-0 right-0 text-center text-black font-[Itim] text-5xl p-5">{text}</p>}
     </div>
   );
 };

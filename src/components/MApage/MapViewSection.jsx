@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MapViewSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const navigate = useNavigate();
 
   const mapData = [
     {
@@ -9,28 +11,32 @@ const MapViewSection = () => {
       title: 'HỌC BỔNG TOÀN PHẦN',
       subtitle: 'UYLS MALAYSIA 2024',
       color: 'from-amber-500 to-orange-600',
-      bgColor: 'bg-gradient-to-br from-amber-50 to-orange-50'
+      bgColor: 'bg-gradient-to-br from-amber-50 to-orange-50',
+      url: 'https://universalyouthmovement.org/'
     },
     {
       image: '/MApage/Map2.jpg',
       title: 'HỌC BỔNG TOÀN PHẦN',
       subtitle: 'ISCOSME INDONESIA 2024',
       color: 'from-red-500 to-rose-600',
-      bgColor: 'bg-gradient-to-br from-red-50 to-rose-50'
+      bgColor: 'bg-gradient-to-br from-red-50 to-rose-50',
+      url: 'https://www.diald.nu.ac.th/download/scholarship/20240325-Muhammadiyan-University-Yogyakarta-Indonesia.pdf'
     },
     {
       image: '/MApage/Map3.jpg',
       title: 'HỌC BỔNG TRẠI HÈ',
       subtitle: 'TẠI GIANG TÂY, TRUNG QUỐC 2024',
       color: 'from-green-500 to-emerald-600',
-      bgColor: 'bg-gradient-to-br from-green-50 to-emerald-50'
+      bgColor: 'bg-gradient-to-br from-green-50 to-emerald-50',
+      url: 'https://studyinchina.io/hoc-bong/hoc-bong-tinh-giang-tay'
     },
     {
       image: '/MApage/Map4.jpg',
       title: 'HỌC BỔNG TRẠI ĐÔNG',
       subtitle: 'TẠI HÀNG CHÂU, TRUNG QUỐC 2024',
       color: 'from-blue-500 to-cyan-600',
-      bgColor: 'bg-gradient-to-br from-blue-50 to-cyan-50'
+      bgColor: 'bg-gradient-to-br from-blue-50 to-cyan-50',
+      url: 'https://studyinchina.io/hoc-bong/chuong-trinh-trai-dong-quoc-te'
     }
   ];
 
@@ -69,6 +75,7 @@ const MapViewSection = () => {
                 animationDelay: `${index * 150}ms`,
                 animation: 'slideUp 0.6s ease-out forwards'
               }}
+              onClick={() => navigate(map.url)}
             >
               {/* Image Container */}
               <div className="relative aspect-[16/9] overflow-hidden">

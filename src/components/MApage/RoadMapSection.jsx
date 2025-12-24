@@ -44,6 +44,7 @@ const RoadMapSection = () => {
   const sectionRef = useRef(null);
   const audioRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
+  const [showText, setShowText] = useState(false);
 
   // Preload và track audio ready state
   useEffect(() => {
@@ -105,11 +106,13 @@ const RoadMapSection = () => {
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Scroll vào section -> phát audio từ đầu
+          // Scroll vào section -> phát audio từ đầu và hiển thị notification
           playAudio();
+          setShowText(true);
         } else {
-          // Scroll ra khỏi section -> dừng audio
+          // Scroll ra khỏi section -> dừng audio và ẩn notification
           audio.pause();
+          setShowText(false);
         }
       });
     };
@@ -134,13 +137,38 @@ const RoadMapSection = () => {
   }, [audioReady]);
 
   return (
-    <div ref={sectionRef} className="bg-[url(/MApage/bgMap.png)] h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden flex items-end justify-center">
+    <div ref={sectionRef} className="bg-[url(/MApage/bgMap.png)] h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden flex flex-col items-center justify-center">
       <audio ref={audioRef} src="/MApage/voiceMap.m4a" preload="auto" />
-      <RoadWithPins
-        className="w-full max-w-[1500px] h-full lg:translate-y-5"
-        pins={pinsData}
-        characterSrc="/MApage/bot.png"
-      />
+      
+      {/* Notification - Ẩn khi click vào map */}
+      <div 
+        className={`absolute top-8 left-1/2 -translate-x-1/2 z-10 text-center px-4 max-w-4xl transition-all duration-500 ${
+          showText 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 -translate-y-8 pointer-events-none'
+        }`}
+      >
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 border-4 border-amber-400 animate-[slideDown_0.5s_ease-out]">
+          <p className="text-gray-800 text-lg md:text-xl leading-relaxed mb-3">
+            Chỉ trong vòng một năm, <span className="font-bold text-amber-600">Nguyễn Minh Anh</span> đã ghi dấu ấn với loạt thành tích nổi bật trên hành trình học tập và hội nhập quốc tế.
+          </p>
+          <p className="text-gray-700 text-base md:text-lg font-semibold mb-2">
+            Trong đó nổi bật nhất là <span className="text-2xl font-bold text-red-600">4 học bổng quốc tế:</span>
+          </p>
+          <p className="text-gray-600 text-sm md:text-base italic">
+            💡 Hãy tương tác với bản đồ để khám phá chi tiết từng học bổng!
+          </p>
+        </div>
+      </div>
+
+      {/* Map area - Click để ẩn notification */}
+      <div onClick={() => setShowText(false)} className="w-full h-full flex items-end justify-center">
+        <RoadWithPins
+          className="w-full max-w-[1500px] h-full lg:translate-y-5"
+          pins={pinsData}
+          characterSrc="/MApage/bot.png"
+        />
+      </div>
     </div>
   );
 };

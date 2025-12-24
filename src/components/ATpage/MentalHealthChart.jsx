@@ -32,7 +32,7 @@ const MentalHealthChart = ({ className = "" }) => {
   ];
 
   return (
-    <div className={`relative ${className} p-4 flex items-center justify-center`}>
+    <div className={`relative ${className} p-2 md:p-4 flex flex-col items-center justify-center gap-2 md:gap-4 h-screen`}>
       {/* Background image overlay */}
       <div
         className="absolute inset-0 opacity-20 bg-cover bg-center"
@@ -41,7 +41,15 @@ const MentalHealthChart = ({ className = "" }) => {
         }}
       />
 
-      <ResponsiveContainer width="100%" height={500}>
+      {/* Introductory Text */}
+      <div className="relative z-10 max-w-4xl mx-auto px-2">
+        <p className="text-center text-[16px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-[Itim] text-gray-800 p-3 md:p-4 border-4 border-gray-800 bg-white/90 rounded-2xl shadow-lg">
+          Những gì Anh Thư đối diện là một phần của bức tranh chung, khi ngày càng nhiều sinh viên Việt Nam đang phải sống trong áp lực tâm lý kéo dài.
+        </p>
+      </div>
+
+
+      <ResponsiveContainer width="100%" height="60%" minHeight={300} maxHeight={400}>
         <LineChart
           data={data}
           margin={{
@@ -105,7 +113,11 @@ const MentalHealthChart = ({ className = "" }) => {
           />
         </LineChart>
       </ResponsiveContainer>
-      <p className="absolute bottom-0 left-0 right-0 text-center font-['Itim'] text-black text-lg p-10 italic w-[60%] mx-auto">* Dữ liệu được sử dụng trong phân tích này trích từ nghiên cứu Mental Health in University Students in Vietnam: A Case Study Analysis, tiến hành trên mẫu 200 sinh viên đại học tại Việt Nam, với tỷ lệ lớn là sinh viên năm nhất và nữ giới.</p>
+      
+      {/* Footnote */}
+      <p className="relative z-10 text-center font-['Itim'] text-black text-sm md:text-base p-2 md:p-3 italic w-[95%] md:w-[80%] mx-auto bg-white/80 rounded-lg">
+        * Dữ liệu được sử dụng trong phân tích này trích từ nghiên cứu Mental Health in University Students in Vietnam: A Case Study Analysis, tiến hành trên mẫu 200 sinh viên đại học tại Việt Nam, với tỷ lệ lớn là sinh viên năm nhất và nữ giới.
+      </p>
     </div>
   );
 };

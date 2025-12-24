@@ -2,76 +2,14 @@ import React, { useRef, useEffect, useState } from "react";
 
 const FinalSection = () => {
   const sectionRef = useRef(null);
-  const audioRef = useRef(null);
-  const [audioReady, setAudioReady] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Preload và track audio ready state
+  // Xử lý animation khi scroll vào section
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const handleCanPlay = () => {
-      setAudioReady(true);
-    };
-
-    const handleError = (e) => {
-      console.error("Audio loading error:", e);
-    };
-
-    audio.addEventListener('canplaythrough', handleCanPlay);
-    audio.addEventListener('error', handleError);
-
-    // Force load audio
-    audio.load();
-
-    return () => {
-      audio.removeEventListener('canplaythrough', handleCanPlay);
-      audio.removeEventListener('error', handleError);
-    };
-  }, []);
-
-  // Xử lý phát/dừng audio khi scroll vào/ra section
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const playAudio = async () => {
-      try {
-        // Đợi audio ready nếu chưa sẵn sàng
-        if (!audioReady) {
-          await new Promise((resolve) => {
-            const checkReady = () => {
-              if (audio.readyState >= 3) { // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
-                resolve();
-              } else {
-                setTimeout(checkReady, 100);
-              }
-            };
-            checkReady();
-          });
-        }
-
-        audio.currentTime = 0;
-        await audio.play();
-      } catch (err) {
-        console.log("Audio play failed:", err);
-        // Retry sau 500ms nếu fail
-        setTimeout(() => {
-          audio.play().catch(e => console.log("Retry failed:", e));
-        }, 500);
-      }
-    };
-
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Scroll vào section -> phát audio từ đầu
-          playAudio();
-        } else {
-          // Scroll ra khỏi section -> dừng audio
-          audio.pause();
         }
       });
     };
@@ -88,17 +26,11 @@ const FinalSection = () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
-      // Dừng audio khi unmount
-      if (audio) {
-        audio.pause();
-      }
     };
-  }, [audioReady]);
+  }, []);
 
   return (
     <div ref={sectionRef} className="h-screen relative overflow-hidden bg-white">
-      <audio ref={audioRef} src="/THpage/voiceFinal.m4a" preload="auto" />
-      
       {/* Main Content */}
       <div className="relative h-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 px-8 md:px-12 lg:px-16 py-12">
         {/* Left Side - Image */}
@@ -142,3 +74,4 @@ const FinalSection = () => {
 };
 
 export default FinalSection;
+

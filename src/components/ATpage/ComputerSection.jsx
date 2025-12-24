@@ -8,6 +8,7 @@ const imageUrls = ['prize.png', 'computer.png', 'computer.gif'].map(
 
 const ComputerSection = forwardRef(({ scrollContainerRef }, ref) => {
   const [currentImage, setCurrentImage] = useState(1);
+  const [isInView, setIsInView] = useState(true);
   const sectionRef = useRef(null);
   const isScrollingRef = useRef(false);
   const currentImageRef = useRef(currentImage);
@@ -27,6 +28,29 @@ const ComputerSection = forwardRef(({ scrollContainerRef }, ref) => {
 
   // Expose sectionRef to parent
   useImperativeHandle(ref, () => sectionRef.current);
+
+  // Theo dõi khi section ra khỏi viewport để tắt audio
+  useEffect(() => {
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        setIsInView(entry.isIntersecting);
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.1,
+    });
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   // Xử lý scroll để chuyển ảnh
   useEffect(() => {
@@ -110,9 +134,9 @@ const ComputerSection = forwardRef(({ scrollContainerRef }, ref) => {
 
   return (
     <div ref={sectionRef} className="h-[100vh] w-full relative overflow-hidden">
-      <ComputerImageSlide imageName="prize.png" isActive={currentImage === 1} text="Mọi người thường thấy Thư rạng rỡ trên bục nhận giấy khen, nhưng phía sau những khoảnh khắc ấy là những đêm cô gái bé nhỏ phải tự đối diện với mệt mỏi và ý nghĩ muốn dừng lại." />
-      <ComputerImageSlide imageName="computer.png" isActive={currentImage === 2} />
-      <ComputerImageSlide imageName="computer.gif" isActive={currentImage === 3} />
+      <ComputerImageSlide imageName="prize.png" isActive={currentImage === 1} text="Mọi người thường thấy Thư rạng rỡ trên bục nhận giấy khen, nhưng phía sau những khoảnh khắc ấy là những đêm cô gái bé nhỏ phải tự đối diện với mệt mỏi và ý nghĩ muốn dừng lại." shouldStopAudio={!isInView} />
+      <ComputerImageSlide imageName="computer.png" isActive={currentImage === 2} shouldStopAudio={!isInView} />
+      <ComputerImageSlide imageName="computer.gif" isActive={currentImage === 3} shouldStopAudio={!isInView} />
     </div>
   );
 });

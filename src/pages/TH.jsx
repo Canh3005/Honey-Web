@@ -20,8 +20,8 @@ const TH = () => {
     <div ref={scrollContainerRef} className="h-screen overflow-y-scroll">
       <style>{`
         @keyframes slideInLeft {
-          from { opacity: 0; transform: translateX(-100px) rotate(-90deg); }
-          to { opacity: 1; transform: translateX(0) rotate(-90deg); }
+          from { opacity: 0; transform: translateX(-100px); }
+          to { opacity: 1; transform: translateX(0); }
         }
         @keyframes slideInRight {
           from { opacity: 0; transform: translateX(100px); }
@@ -61,7 +61,7 @@ const TH = () => {
       <MVPSection />
       <OlympiaSection />
       <OlympiaSection1 />
-      <TitleSection text={["Vòng nguyệt quế không mang theo ra thế giới"]} style={{width: "85%", padding: "0 10px"}} />
+      <TitleSection text={["Sau ánh hào quang chiến thắng, Nguyễn Thị Thu Hằng bắt đầu một hành trình mới"]} style={{width: "85%", padding: "0 10px"}} />
       <StudySection />
       <TitleSection text={["Cô gái nhỏ trong thành phố lớn"]} />
       <HorizontalSection />

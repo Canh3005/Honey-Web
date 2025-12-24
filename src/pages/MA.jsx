@@ -19,8 +19,8 @@ const MA = () => {
     <div ref={scrollContainerRef} className="h-screen overflow-y-scroll">
       <style>{`
         @keyframes slideInLeft {
-          from { opacity: 0; transform: translateX(-100px) rotate(-90deg); }
-          to { opacity: 1; transform: translateX(0) rotate(-90deg); }
+          from { opacity: 0; transform: translateX(-100px); }
+          to { opacity: 1; transform: translateX(0); }
         }
         @keyframes slideInRight {
           from { opacity: 0; transform: translateX(100px); }

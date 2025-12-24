@@ -14,17 +14,15 @@ const BookSection = () => {
             -translate-x-45
               font-[Itim] text-white
               w-full
-              max-w-[25rem] md:max-w-[30rem] lg:max-w-[30rem]
-              text-[22px] sm:text-[26px] md:text-[30px] lg:text-[36px] xl:text-[44px]
+              max-w-[25rem] md:max-w-[30rem] lg:max-w-[36rem]
+              text-[22px] sm:text-[26px] md:text-[30px] lg:text-[36px] xl:text-[41px]
               leading-snug
               text-justify
               pt-16 sm:pt-0
             "
           >
-            Thu Hằng - cô bé năm nào ngồi trong lớp 7, ôm quyển vở toán lem nhem
-            mực, ngước lên màn hình xem Olympia mà tim đập thình thịch. Mỗi lần thấy
-            các anh chị bấm chuông thật tự tin, Hằng lại lẩm bẩm một mình: “Sau này…
-            mình cũng sẽ đứng ở đó.”
+            Thu Hằng của những năm còn bé yêu thích những khoảng thời gian cùng gia đình quây quần xem chương trình <span className="italic">Đường lên đỉnh Olympia</span>.
+            Lần cô thấy người anh cùng quê mang cầu truyền hình về Ninh Bình, điều đó thôi thúc Hằng có những khát khao trong tự tâm để Hằng khi mới học lớp 7. Kể từ khi ấy, trên bàn học của Hằng luôn có tờ giấy viết lên mục tiêu rằng mình sẽ “Vô địch Olympia”.
           </p>
         </div>
       </div>

@@ -11,6 +11,7 @@ import {
   FinalSection,
 } from "../components/THpage";
 import CharacterNavigator from "../components/CharacterNavigator";
+import TitleSection from "../components/TitleSection";
 
 const TH = () => {
   const scrollContainerRef = useSmoothScroll(1000);
@@ -60,7 +61,9 @@ const TH = () => {
       <MVPSection />
       <OlympiaSection />
       <OlympiaSection1 />
+      <TitleSection text={["Vòng nguyệt quế không mang theo ra thế giới"]} style={{width: "85%", padding: "0 10px"}} />
       <StudySection />
+      <TitleSection text={["Cô gái nhỏ trong thành phố lớn"]} />
       <HorizontalSection />
       <FinalSection />
       

@@ -11,11 +11,9 @@ const StudySection = () => {
             className="w-4/5 h-full object-cover"
           />
         </div>
-        <p className="text-white text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-[Itim] mt-25 max-w-[1400px] text-center px-10">
-          Những ngày đầu tại Úc, Thu Hằng ngay lập tức phải đối mặt cú sốc hội
-          nhập: không theo kịp tiếng Anh, trượt bài kiểm tra đầu tiên. Từ học
-          sinh ưu tú từng tỏa sáng ở Olympia, cô trở thành một sinh viên lạc
-          lõng nơi đất khách.
+        <p className="text-white text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-[Itim] mt-25 max-w-[1500px] text-center px-10">
+          Chiếc vòng nguyệt quế năm ấy là tấm vé đưa Hằng đến Úc - với học bổng toàn phần của Đại học Swinburne.
+          Ở một nơi hoàn toàn xa lạ, Thu Hằng phải đối diện với môi trường sống và học tập mới, nơi cô phải bước ra khỏi vùng an toàn của chính mình để học cách hòa nhập.
         </p>
       </div>
       <div className="h-screen flex flex-col items-center">

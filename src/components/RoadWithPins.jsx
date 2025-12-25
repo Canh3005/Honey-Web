@@ -20,7 +20,8 @@ const RoadWithPins = ({
   const pinPercents = [13, 39, 65, 90];
   const [pinPositions, setPinPositions] = useState([]);
   const pinTitlePositions = ["bottom", "top", "bottom", "top"];  const pinBubblePositions = ["right", "right", "right", "left"];
-  const yOffsetPx = [80, 13, -58, -120];
+  // Changed to vh units for zoom-independent positioning
+  const yOffsetVh = [14, 5, -4, -13];
 
   // Tính vị trí ban đầu của nhân vật khi Road mount
   useEffect(() => {
@@ -102,7 +103,7 @@ const RoadWithPins = ({
             className="absolute cursor-pointer"
             style={{
               left: `${p.x}%`,
-              top: `calc(${p.y}% + ${yOffsetPx[index]}px)`,
+              top: `calc(${p.y}% + ${yOffsetVh[index]}vh)`,
             }}
             color={pin.color}
             size={pin.size || 50}

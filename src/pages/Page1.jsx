@@ -15,7 +15,7 @@ const Page1 = () => {
       <div className="bg-gradient-to-b from-neutral-200 to-neutral-300 h-[50vh] flex items-end justify-center pb-16">
         <div className="text-center pb-4">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-['Itim'] bg-gradient-to-r from-slate-800 via-gray-700 to-zinc-800 bg-clip-text text-transparent drop-shadow-2xl mb-4 animate-fade-in pb-2">
-            Sau ngày vinh quang
+            SAU NGÀY VINH QUANG
           </h1>
           <div className="flex items-center justify-center gap-4 mt-6">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent via-slate-600 to-gray-600 rounded-full"></div>

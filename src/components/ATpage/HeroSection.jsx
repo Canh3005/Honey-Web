@@ -4,10 +4,10 @@ const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="bg-[url('/MApage/bgChar.png')] min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden">
-      <div className="flex gap-30 items-center mt-15 w-full max-w-screen-xl px-8">
+    <div className="bg-[url('/MApage/bgChar.png')] min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-x-hidden py-12">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center w-full max-w-[1400px] px-6 md:px-12">
         {/* Left side - Avatar card */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center flex-shrink-0">
           <div 
             className="relative w-80 h-110 animate-slide-left"
             style={{ perspective: '1000px' }}
@@ -24,7 +24,7 @@ const HeroSection = () => {
               <img
                 src="/ATpage/realAvt.png"
                 alt="Anh Thư Real"
-                className="absolute w-80 h-110 object-cover rounded-[40px] [backface-visibility:hidden]"
+                className="absolute w-80 h-110 object-cover rounded-[40px] [backface-visibility:hidden] shadow-2xl"
               />
               
               {/* Back - Avatar */}
@@ -35,64 +35,51 @@ const HeroSection = () => {
               />
             </div>
           </div>
-          <h2 className="text-4xl font-bold mt-10 text-gray-800 font-['Itim'] opacity-0 animate-fade-up delay-400">
-            PHẠM ANH THƯ
-          </h2>
-          <p className="text-3xl text-gray-700 font-['Itim'] opacity-0 animate-fade-up delay-600">
-            (21 TUỔI)
-          </p>
         </div>
 
-        {/* Right side - Stats */}
-        <div className="flex flex-col gap-6 -mt-20">
-          {/* Sát thương */}
-          <div className="opacity-0 animate-slide-right delay-200">
-            <p className="text-3xl font-bold text-gray-800 font-['Itim'] mb-8">
-              SÁT THƯƠNG: 
-            </p>
-            <div className="w-[min(800px,90vw)] h-15 bg-white rounded-full overflow-hidden border-2 border-blue-300">
-              <div className="h-full bg-[#90b6ee] rounded-full animate-fill-80 delay-800"></div>
+        {/* Right side - Profile Information */}
+        <div className="flex-[2] opacity-0 animate-slide-right delay-200">
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-[#90b6ee]/30 hover:border-[#90b6ee]/50 transition-all duration-500">
+            {/* Name and Status */}
+            <div className="mb-8 pb-6 border-b-2 border-gray-200">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 font-['Itim'] mb-4 leading-tight">
+                Phạm Anh Thư
+              </h1>
+              <p className="text-2xl md:text-3xl text-[#90b6ee] font-['Itim'] font-semibold">
+                Sinh viên Đại học Bách Khoa Hà Nội
+              </p>
             </div>
-          </div>
 
-          {/* HP */}
-          <div className="opacity-0 animate-slide-right delay-400">
-            <p className="text-3xl font-bold text-gray-800 font-['Itim'] mb-8">
-              HP:
-            </p>
-            <div className="w-[min(800px,90vw)] h-15 bg-white rounded-full overflow-hidden border-2 border-blue-300">
-              <div className="h-full bg-[#90b6ee] rounded-full animate-fill-80 delay-1000"></div>
+            {/* Milestones */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-2 h-2 bg-[#90b6ee] rounded-full animate-pulse"></div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 font-['Itim']">
+                  Dấu mốc tiêu biểu
+                </h2>
+              </div>
+              
+              <ul className="space-y-5">
+                <li className="flex gap-4 group">
+                  <span className="text-[#90b6ee] text-2xl font-bold mt-1 group-hover:scale-125 transition-transform duration-300">✦</span>
+                  <p className="text-xl md:text-2xl text-gray-700 font-['Itim'] leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
+                    Tổ phó Tổ Hỗ trợ triển khai hệ thống iCTSV, Ban Công tác Sinh viên
+                  </p>
+                </li>
+                <li className="flex gap-4 group">
+                  <span className="text-[#90b6ee] text-2xl font-bold mt-1 group-hover:scale-125 transition-transform duration-300">✦</span>
+                  <p className="text-xl md:text-2xl text-gray-700 font-['Itim'] leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
+                    Sinh viên 5 tốt cấp Đại học Bách khoa Hà Nội
+                  </p>
+                </li>
+                <li className="flex gap-4 group">
+                  <span className="text-[#90b6ee] text-2xl font-bold mt-1 group-hover:scale-125 transition-transform duration-300">✦</span>
+                  <p className="text-xl md:text-2xl text-gray-700 font-['Itim'] leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
+                    Giấy khen Giám đốc và học bổng khuyến khích học tập
+                  </p>
+                </li>
+              </ul>
             </div>
-          </div>
-
-          {/* Vũ khí */}
-          <div className="opacity-0 animate-slide-right delay-600">
-            <p className="text-3xl font-bold text-gray-800 font-['Itim'] mb-8">
-              VŨ KHÍ:
-            </p>
-            <img
-              src="/ATpage/weapon.png"
-              alt="Weapon"
-              className="w-50 animate-float hover:scale-110 transition-transform duration-300 cursor-pointer"
-            />
-          </div>
-
-          {/* Kỹ năng */}
-          <div className="opacity-0 animate-slide-right delay-800">
-            <p className="text-3xl font-bold text-gray-800 font-['Itim'] mb-2">
-              KỸ NĂNG:
-            </p>
-            <ul className="text-3xl text-gray-700 font-['Itim'] italic">
-              <li className="hover:text-[#90b6ee] hover:translate-x-2 transition-all duration-300 cursor-default">
-                – Xử lý dữ liệu chính xác
-              </li>
-              <li className="hover:text-[#90b6ee] hover:translate-x-2 transition-all duration-300 cursor-default">
-                – Quản lý nhiều nhiệm vụ
-              </li>
-              <li className="hover:text-[#90b6ee] hover:translate-x-2 transition-all duration-300 cursor-default">
-                – Sức bền tinh thần
-              </li>
-            </ul>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import {
   RoleSection,
   CrySection,
   MentalHealthChart,
+  FinalSection,
 } from "../components/ATpage";
 import CharacterNavigator from "../components/CharacterNavigator";
 
@@ -154,6 +155,7 @@ const AT = () => {
         <CrySection />
         <MentalHealthChart className="h-screen" />
       </div>
+      <FinalSection />
       
       <CharacterNavigator />
     </div>

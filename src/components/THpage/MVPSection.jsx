@@ -19,7 +19,7 @@ const MVPSection = () => {
         </div>
 
         {/* Text */}
-        <p className="text-center font-['Itim'] text-gray-900 max-w-4xl leading-relaxed px-2 sm:px-6 text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
+        <p className="text-center font-['Itim'] text-gray-900 max-w-4xl leading-relaxed px-2 sm:px-6 text-[20px] sm:text-[22px] md:text-[28px] lg:text-[32px]">
           Năm năm sau, cô đứng ở vị trí mà mình từng mơ: Quán quân Đường lên đỉnh Olympia.
         </p>
       </div>

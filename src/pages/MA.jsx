@@ -58,7 +58,7 @@ const MA = () => {
       <IntroSection />
       <RoadMapSection />
       <MapViewSection />
-      <TitleSection text={["Group Facebook “Còn thở là còn viết”", "Dự án nơi những người yêu viết được thỏa mãn đam mê"]} />
+      <TitleSection text={["Group Facebook “Còn thở là còn viết”", "Dự án nơi những người yêu viết được thỏa mãn đam mê"]} style={{width: "90%"}} />
       <FacebookGroupSection scrollContainerRef={scrollContainerRef} />
       <IndiaSection />
       <ChallengesSection />

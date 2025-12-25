@@ -4,6 +4,7 @@
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  font-size: calc(100% - 3px); /* Reduce base font size by 2px */
 }
 
 * {

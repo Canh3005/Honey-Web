@@ -63,7 +63,7 @@ const FinalSection = () => {
               </p>
               
               <p className="text-lg md:text-xl lg:text-2xl text-gray-700 font-[Itim] leading-relaxed">
-                Với cô, trưởng thành không phải là không bao giờ gục ngã, mà là biết tiếp tục bước đi — bình thản, kiên định và tử tế với chính mình.
+                Với cô, trưởng thành không phải là không bao giờ gục ngã, mà là biết tiếp tục bước đi bình thản, kiên định và tử tế với chính mình.
               </p>
             </div>
           </div>

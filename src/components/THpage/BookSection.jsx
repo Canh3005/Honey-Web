@@ -15,7 +15,7 @@ const BookSection = () => {
               font-[Itim] text-white
               w-full
               max-w-[25rem] md:max-w-[30rem] lg:max-w-[36rem]
-              text-[22px] sm:text-[26px] md:text-[30px] lg:text-[36px] xl:text-[41px]
+              text-[20px] sm:text-[22px] md:text-[28px] lg:text-[32px]
               leading-snug
               text-justify
               pt-16 sm:pt-0

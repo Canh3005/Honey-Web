@@ -30,7 +30,7 @@ const StudySection = () => {
           alt="Study"
           className="h-7/10 object-cover w-full"
         />
-        <p className="text-[20px] sm:text-[22px] md:text-[28px] lg:text-[32px] font-[Itim] max-w-[1600px] my-auto px-1 text-center">
+        <p className="text-[18px] sm:text-[20px] md:text-[26px] lg:text-[28px] font-[Itim] max-w-[1600px] my-auto text-center">
           Thế nhưng chính trong những khoảnh khắc ngồi trò chuyện cùng những người bạn mới nơi đất nước xa lạ, Hằng dần nhận ra rằng chiến thắng thật sự không nằm ở ánh đèn sân khấu, mà ở khả năng hòa nhập và đứng vững giữa một thế giới hoàn toàn khác.
           Cô bắt đầu học lại từ những điều nhỏ nhất: cách ghi chép, cách hỏi bài, cách giao tiếp và thích nghi – từng ngày một, lặng lẽ nhưng bền bỉ, như leo một ngọn núi không cần tiếng vỗ tay.
         </p>

@@ -127,66 +127,33 @@ const Summary = () => {
             </h1>
           </div>
 
-          {/* Characters Row */}
-          <div className="flex items-center justify-center gap-8 md:gap-12 lg:gap-16 mb-16">
-            {characters.map((character, index) => (
-              <div
-                key={character.name}
-                className={`group transition-all duration-1000 delay-${(index + 2) * 200} ${
-                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
-                }`}
-              >
-                {/* Character Avatar */}
-                <div className="relative">
-                  {/* Glow Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${character.color} rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-110`}></div>
-                  
-                  {/* Flip Card Container */}
-                  <div className={`flip-card relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48`}>
-                    <div className="flip-card-inner">
-                      {/* Front - Real Photo */}
-                      <div className={`flip-card-front border-4 ${character.borderColor} shadow-2xl`}>
-                        <img
-                          src={character.realImage}
-                          alt={`${character.name} - Real`}
-                          className="w-full h-full object-cover object-[center_30%]"
-                        />
-                      </div>
-                      
-                      {/* Back - Avatar */}
-                      <div className={`flip-card-back border-4 ${character.borderColor} shadow-2xl`}>
-                        {/* Gradient Border Effect */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${character.color} opacity-30`}></div>
-                        <img
-                          src={character.image}
-                          alt={character.name}
-                          className="w-full h-full object-cover object-[center_30%] relative z-10"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Name Tag */}
-                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                    <div className={`bg-gradient-to-r ${character.color} text-white px-4 py-2 rounded-full shadow-lg font-[Itim] text-sm md:text-base font-semibold transform group-hover:scale-110 transition-transform duration-300`}>
-                      {character.name}
-                    </div>
-                  </div>
-                </div>
+          {/* Main Image */}
+          <div className={`mb-4 transition-all duration-1000 delay-400 ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          }`}>
+            <div className="relative">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-400/40 via-rose-400/40 to-purple-400/40 rounded-3xl blur-2xl"></div>
+              
+              {/* Image Container */}
+              <div className="relative">
+                <img
+                  src="/SummaryPage/sum.png"
+                  alt="Tổng kết hành trình"
+                  className="w-full max-w-2xl mx-auto rounded-3xl shadow-2xl border-4 border-white/50 hover:scale-105 transition-transform duration-500"
+                />
               </div>
-            ))}
+            </div>
           </div>
 
           {/* Text Section */}
-          <div className={`text-center max-w-4xl mt-4 transition-all duration-1000 delay-800 ${
+          <div className={`text-center max-w-5xl mt-4 transition-all duration-1000 delay-800 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-10 lg:p-12 border border-white/50">
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 font-[Itim] leading-relaxed">
-                Khi hành trình khép lại, điều còn lại không phải là danh hiệu, mà là những bài học từ mỗi lần vấp ngã. 
-                Bởi thành công không chỉ nằm ở đích đến, mà ở cách con người kiên trì bước tiếp qua những thử thách trên đường đi.
-              </p>
-            </div>
+            <p className="text-xl md:text-2xl lg:text-3xl font-bold font-[Itim] leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-rose-600 to-purple-600">
+              Khi hành trình khép lại, điều còn lại không phải là danh hiệu, mà là những bài học từ mỗi lần vấp ngã. 
+              Bởi thành công không chỉ nằm ở đích đến, mà ở cách con người kiên trì bước tiếp qua những thử thách trên đường đi.
+            </p>
           </div>
 
         </div>

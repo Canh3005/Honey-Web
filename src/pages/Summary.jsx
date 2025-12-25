@@ -149,7 +149,7 @@ const Summary = () => {
                         <img
                           src={character.realImage}
                           alt={`${character.name} - Real`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-[center_30%]"
                         />
                       </div>
                       
@@ -160,7 +160,7 @@ const Summary = () => {
                         <img
                           src={character.image}
                           alt={character.name}
-                          className="w-full h-full object-cover relative z-10"
+                          className="w-full h-full object-cover object-[center_30%] relative z-10"
                         />
                       </div>
                     </div>

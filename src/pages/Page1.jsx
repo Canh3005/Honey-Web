@@ -12,8 +12,17 @@ const Page1 = () => {
 
   return (
     <div ref={scrollContainerRef} className="h-screen overflow-y-scroll">
-      <div className="bg-gradient-to-b from-neutral-200 to-neutral-300 h-[50vh] flex items-start justify-center">
-        <img src="page1/title.svg" alt="title" className="h-40 mt-20" />
+      <div className="bg-gradient-to-b from-neutral-200 to-neutral-300 h-[50vh] flex items-end justify-center pb-16">
+        <div className="text-center pb-4">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-['Itim'] bg-gradient-to-r from-slate-800 via-gray-700 to-zinc-800 bg-clip-text text-transparent drop-shadow-2xl mb-4 animate-fade-in pb-2">
+            Sau ngày vinh quang
+          </h1>
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-slate-600 to-gray-600 rounded-full"></div>
+            <div className="w-3 h-3 bg-slate-700 rounded-full animate-pulse"></div>
+            <div className="h-1 w-20 bg-gradient-to-l from-transparent via-gray-600 to-zinc-600 rounded-full"></div>
+          </div>
+        </div>
       </div>
       <div className="bg-gradient-to-b from-neutral-300 to-black h-[150vh] items-center justify-center flex">
         <div className="font-['Itim'] text-white pr-100 pl-100 text-5xl mt-80">

@@ -25,6 +25,13 @@ const CharacterNavigator = () => {
       path: '/th',
       image: '/THpage/avtTH.png',
       color: 'from-green-500 to-emerald-500'
+    },
+    {
+      id: 'SUMMARY',
+      name: 'Tổng Kết',
+      path: '/summary',
+      image: '/SummaryPage/avtSummary.png',
+      color: 'from-orange-500 to-amber-500'
     }
   ];
 
